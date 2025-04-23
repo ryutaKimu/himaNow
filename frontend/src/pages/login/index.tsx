@@ -1,6 +1,8 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import { Container, Box, Typography} from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
+import { InputText } from "../../components/Input/InputText";
+import { FormButton } from "../../components/button/FormButton";
 
 const LoginPage = () => {
 	const [email, setEmail] = useState("");
@@ -32,27 +34,21 @@ const LoginPage = () => {
 					ログイン
 				</Typography>
 
-				<TextField
+				<InputText
 					label="メールアドレス"
 					type="email"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
-					required
-					fullWidth
 				/>
 
-				<TextField
+				<InputText
 					label="パスワード"
 					type="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
-					required
-					fullWidth
 				/>
 
-				<Button type="submit" variant="contained" fullWidth>
-					ログイン
-				</Button>
+				<FormButton type="submit" label="ログイン"/>
 
 				{message && (
 					<Typography color="error" align="center">
