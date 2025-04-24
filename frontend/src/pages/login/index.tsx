@@ -1,8 +1,8 @@
 import { Container, Box, Typography} from "@mui/material";
-import axios from "axios";
 import { useState } from "react";
 import { InputText } from "../../components/Input/InputText";
 import { FormButton } from "../../components/button/FormButton";
+import { login } from "../../api/auth";
 
 const LoginPage = () => {
 	const [email, setEmail] = useState("");
@@ -12,11 +12,12 @@ const LoginPage = () => {
 	const handleLogin = async (e: React.FormEvent) => {
 		e.preventDefault();
 		try {
-			await axios.post(
-				"http://localhost:8080/api/login",
-				{ email, password },
-				{ withCredentials: true }
-			);
+			await login({
+				email: email,
+				password: password
+			})
+			//あとで削除
+			setMessage("ログインに成功しました");
 		} catch (err) {
 			setMessage("ログイン失敗しました");
 			console.error(err);
