@@ -1,4 +1,5 @@
 import  Home  from "../pages/Home";
+import { Register } from "../pages/Register";
 import Login from "../pages/login";
 
 type Routers = {
@@ -15,4 +16,8 @@ export const routers: Routers[] = [
     path: "/login",
     element: Login,
   },
+  {
+    path: "/register",
+    element: Register
+  }
 ];
