@@ -16,8 +16,6 @@ const LoginPage = () => {
 				email: email,
 				password: password
 			})
-			//あとで削除
-			setMessage("ログインに成功しました");
 		} catch (err) {
 			setMessage("ログイン失敗しました");
 			console.error(err);
